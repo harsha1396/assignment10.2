@@ -1,0 +1,16 @@
+CREATING DATABASE:
+CREATE DATABASE custom;
+
+USING THE DATABASE
+USE custom;
+
+CREATING TABLE:
+CREATE TABLE IF NOT EXISTS temperature_data
+(date string, zip_code bigint, temperature int)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
+
+LOADING DATA:
+LOAD DATA LOCAL INPATH '/home/acadgild/Downloads/temp_data.txt' OVERWRITE INTO TABLE temperature_data;
